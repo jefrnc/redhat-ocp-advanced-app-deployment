@@ -1,55 +1,59 @@
 ## Welcome to OpenShift Advanced Application Deployment 
-Instructor:   Chád (shod) Darby, cdarby@redhat.com
 
-Dates and Times:  24-28 August, 2020
-Monday: 1030 - 1800 (Brazil-Sao Paulo time, GMT-3)
-Tuesday through Friday: 1000 - 1800 (Brazil-Sao Paulo time, GMT-3)
-Lunch: 1300 - 1400
+Instructor:   **Chád (shod) Darby, cdarby@redhat.com**
 
-Course Materials (slides + labs)
-** Esta en este repositorio ** 
+* Dates and Times:  24-28 August, 2020
+* Monday: 1030 - 1800 (Brazil-Sao Paulo time, GMT-3)
+* Tuesday through Friday: 1000 - 1800 (Brazil-Sao Paulo time, GMT-3)
+* Lunch: 1300 - 1400
+
+
+**Course Materials (slides + labs)**
+Esta en este repositorio
 
 Communications
+
 BlueJeans Meeting Link: https://bluejeans.com/129763372
 Slack: https://join.slack.com/t/red-hat-gpte/shared_invite/zt-ebnmuruf-wfZUV783jhfZy57FICpGHw
 
 Class attendees (Enter your full name and email) - REQUIRED FOR ATTENDANCE:
-Chád Darby, cdarby@redhat.com
-Rodrigo Canhissare, canhissare@redhat.com
-Jose Franco, jose.franco@semperti.com
-Marko Aular, markoantonio.aular@semperti.com
-João Simões, joao.simoes@scalait.com
-Renato Guimarães, renato.guimaraes@la.logicalis.com
-Guilherme dos Santos Silva, guilherme.camposo@redhat.com
-Alexandre Dos Santos, adossant@redhat.com
-Thiago Osório, tosorio@redhat.com
-Luiz Gustavo Chiaretto, chiaretto@redhat.com
-Jade Luiza Lassery, jadsanto@redhat.com
-Priscilla Ordenes, pordenes@redhat.com
-Remington Santos, resantos@redhat.com
-Andrea Castellanos, ancastel@redhat.com
-Alexon Oliveira, alexon@redhat.com
-Ezequiel Brizuela - ebrizuel@redhat.com
-Santiago Maudet - smaudet@redhat.com
-Adriano Luz Rodrigues - adriano.rodrigues@qriar.com
-c.desiderio.arana@accenture.com
-Marias Viviana Delaluz Ramírez - mdelaluz@redhat.com
-Andre Araujo - agaraujo@stefanini.com
+* Chád Darby, cdarby@redhat.com
+* Rodrigo Canhissare, canhissare@redhat.com
+* Jose Franco, jose.franco@semperti.com
+* Marko Aular, markoantonio.aular@semperti.com
+* João Simões, joao.simoes@scalait.com
+* Renato Guimarães, renato.guimaraes@la.logicalis.com
+* Guilherme dos Santos Silva, guilherme.camposo@redhat.com
+* Alexandre Dos Santos, adossant@redhat.com
+* Thiago Osório, tosorio@redhat.com
+* Luiz Gustavo Chiaretto, chiaretto@redhat.com
+* Jade Luiza Lassery, jadsanto@redhat.com
+* Priscilla Ordenes, pordenes@redhat.com
+* Remington Santos, resantos@redhat.com
+* Andrea Castellanos, ancastel@redhat.com
+* Alexon Oliveira, alexon@redhat.com
+* Ezequiel Brizuela - ebrizuel@redhat.com
+* Santiago Maudet - smaudet@redhat.com
+* Adriano Luz Rodrigues - adriano.rodrigues@qriar.com
+* c.desiderio.arana@accenture.com
+* Marias Viviana Delaluz Ramírez - mdelaluz@redhat.com
+* Andre Araujo - agaraujo@stefanini.com
+* 
 
 ======
 
-Structure of Course
-Slides in the morning: 1 - 2 hours
-Labs in remaining time
-Slides: 30%, Labs 70%
+**Structure of Course**
+* Slides in the morning: 1 - 2 hours
+* Labs in remaining time
+* Slides: 30%, Labs 70%
 
-Homework Assignment
+**Homework Assignment**
 -  You will complete this on your own time after the class is over
 -  You have 4 weeks to turn in homework assignment
 
-Classroom Rules
-    1. Be nice - there are no stupid questions. Everyone is at different levels of learning in OpenShift. We all know different things.
-    2. Use the "Parking Lot" at the end of this doc for off-topic questions or for things that we couldn't answer during discussion.
+**Classroom Rules**
+1.     Be nice - there are no stupid questions. Everyone is at different levels of learning in OpenShift. We all know different things.
+2.     Use the "Parking Lot" at the end of this doc for off-topic questions or for things that we couldn't answer during discussion.
 
 
 OPENSHIFT CLUSTER ENVIRONMENT
@@ -91,33 +95,36 @@ I recommend you use my links below for the lab guides. Sometimes we make fixes d
  
 =============
  
-Day 1 - Introductions & Controllers
+## Day 1 - Introductions & Controllers
 Module 1: Intro
-    http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/01_Course_Intro/AllSlides.html
+    [01_Course_Intro/AllSlides.html](01_Course_Intro/AllSlides.html)
 
 Module 2: 12 Factor Applications
-    http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/02_12_Factor_Applications/AllSlides.html
+    [02_12_Factor_Applications/AllSlides.html](02_12_Factor_Applications/AllSlides.html)
 
 Module 3: Controllers
-     http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/03_Controllers/AllSlides.html
+     [03_Controllers/AllSlides.html](03_Controllers/AllSlides.html)
 
-    Lab: http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/03_Controllers/03_1_Controllers_Lab.html
-    Lab Solution: http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/03_Controllers/03_1_Controllers_Solution_Lab.html
+    Lab: [03_Controllers/03_1_Controllers_Lab.html](03_Controllers/03_1_Controllers_Lab.html)
+    Lab Solution: [03_Controllers/03_1_Controllers_Solution_Lab.html](03_Controllers/03_1_Controllers_Solution_Lab.html)
 
 
  
+```bash
 oc set env is easiest way to set environment variables
 -but, if you love jsonpatch...
 oc patch dc/green  -p '{"spec": {"template": {"spec": {"containers": [{"name": "green", "env": [{"name": "SELECTOR", "value": "pets"}]}]}}}}'
+```
+
 
 ============= 
 
-Day 2 - Operators & CI/CD Tools
+## Day 2 - Operators & CI/CD Tools
 Module 4: Operators
-Slides:     http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/04_Operators/AllSlides.html
+Slides:     [04_Operators/AllSlides.html](04_Operators/AllSlides.html)
 
-Operators Lab: http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/04_Operators/04_1_Operators_Lab.html
-Operators Lab Solution:http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/04_Operators/04_1_Operators_Solution_Lab.html
+Operators Lab: [04_Operators/04_1_Operators_Lab.html](04_Operators/04_1_Operators_Lab.html)
+Operators Lab Solution: [04_Operators/04_1_Operators_Solution_Lab.html](04_Operators/04_1_Operators_Solution_Lab.html)
 
 -----
 [Ezekiel] If you have issues with the password setting in the quay.io account, like Anyone with redhat credentials linked. Just create a robot account and use that credentials to login in podman login step.
@@ -141,10 +148,10 @@ Namespace configuration Operator: https://github.com/redhat-cop/namespace-config
 
 Module 5: CI/CD tools
 
-Slides: http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/05_CICD_Tools/AllSlides.html
+Slides: [05_CICD_Tools/AllSlides.html](05_CICD_Tools/AllSlides.html)
 
-Lab: http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/05_CICD_Tools/05_1_CICD_Tools_Lab.html
-Lab Solution: http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/05_CICD_Tools/05_1_CICD_Tools_Solution_Lab.html
+Lab: [05_CICD_Tools/05_1_CICD_Tools_Lab.html](05_CICD_Tools/05_1_CICD_Tools_Lab.html)
+Lab Solution: [05_CICD_Tools/05_1_CICD_Tools_Solution_Lab.html](05_CICD_Tools/05_1_CICD_Tools_Solution_Lab.html)
 
 SonarQube Image Source: https://github.com/wkulhanek/docker-openshift-sonarqube
 Gogs Image Source: https://github.com/wkulhanek/docker-openshift-gogs
@@ -164,13 +171,13 @@ How to find something in OpenShift resources (e.g. emptyDir):
 
 =============
 
-Day 3 - Building Applications
+## Day 3 - Building Applications
 Module 6: Building Applications
 
-Slides: http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/06_Building_Applications/AllSlides.html
+Slides: [06_Building_Applications/AllSlides.html](06_Building_Applications/AllSlides.html)
 
-Lab: http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/06_Building_Applications/06_1_Building_Applications_Lab.html
-Lab Solution: http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/06_Building_Applications/06_1_Building_Applications_Solution_Lab.html
+Lab: [06_Building_Applications/06_1_Building_Applications_Lab.html](06_Building_Applications/06_1_Building_Applications_Lab.html)
+Lab Solution: [06_Building_Applications/06_1_Building_Applications_Solution_Lab.html](06_Building_Applications/06_1_Building_Applications_Solution_Lab.html)
 
 
 To clarify seeing the path in the deployment config for the check in slide  (while (rc.spec.replicas != rc.status.readyReplicas) :
@@ -182,13 +189,13 @@ $ oc get rc ola-1 -o json|jq '.|{Required: .spec.replicas, Ready: .status.readyR
 
 =============
 
-Day 4 - Pipelines
+## Day 4 - Pipelines
 Module 7: Pipelines
 
-Slides: http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/07_Pipelines/AllSlides.html
+Slides: 07_Pipelines/AllSlides.html
  
-Lab: http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/07_Pipelines/07_1_Pipelines_Lab.html
-Lab Solution: http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/07_Pipelines/07_1_Pipelines_Solution_Lab.html
+Lab: [07_Pipelines/07_1_Pipelines_Lab.html](07_Pipelines/07_1_Pipelines_Lab.html)
+Lab Solution: [07_Pipelines/07_1_Pipelines_Solution_Lab.html](07_Pipelines/07_1_Pipelines_Solution_Lab.html)
   
 
 Jenkins 
@@ -250,7 +257,7 @@ Build Defaults (oc edit bc tasks -n $GUID-tasks-dev)
 
 
 Homework
-Homework assignment: http://ocp-24aug2020-latam.apps.shared-dev4.dev4.openshift.opentlc.com/08_Assignment/08_1_Assignment_Lab.html
+Homework assignment: 08_Assignment/08_1_Assignment_Lab.html
   
 Please Submit the Survey before you leave today!!!
 
