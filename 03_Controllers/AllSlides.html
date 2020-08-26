@@ -1,0 +1,402 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><title>&nbsp;</title><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><link href="revealjs-redhat/lib/css/theme-v2-liberation.css" rel="stylesheet" /><link href="revealjs-redhat/lib/css/theme-output.css" rel="stylesheet" /><link rel="stylesheet" href="revealjs-redhat/lib/css/font-awesome-4.3.0.css" /><link rel="stylesheet" href="revealjs-redhat/lib/css/gpe.css" id="theme" /><link rel="stylesheet" href="revealjs-redhat/lib/css/highlightjs/sunburst.min.css" /></head><script type="text/javascript">document.write( '<link rel="stylesheet" href="revealjs-redhat/lib/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><body class="theme-font-liberation"><div class="reveal"><div class="slides"><section id="cover" data-background-image="image/1156524-bg_redhat.png" data-background-color="#cc0000"><h2>&nbsp;</h2><div class="scrollbar"><div class="sl-block" data-block-type="text" style="width: 832px; left: 80px; top: 150px; height: auto;"><div class="sl-block-content"><h1>Advanced Application Deployment with Red Hat OpenShift</h1></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 776px; left: 80px; top: 350px;"><div class="sl-block-content"><h2>Controllers</h2></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 211.706666666667px; height: 68px; left: 80px; top: 50px;"><div class="sl-block-content" style="z-index: 13;"><img data-src="data:image/png;base64,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" /></div></div><div class="footer footer-cover">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_module_topics"><h2>Module Topics</h2><div class="scrollbar"><div class="ulist"><ul><li><p>Kubernetes Core Workload API</p></li><li><p>Deployments</p></li><li><p><code>ReplicaSet</code> and <code>Replication Controller</code></p></li><li><p><code>StatefulSet</code></p></li><li><p><code>DaemonSet</code></p></li><li><p><code>Jobs</code> and <code>Cronjobs</code></p></li><li><p>Blue-Green Deployments</p></li><li><p>Health Checks</p></li><li><p>Probe Configuration</p></li><li><p>Sidecar Containers</p></li></ul></div><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_kubernetes_core_workload_api"><h2>Kubernetes Core Workload API</h2><div class="scrollbar"><div class="ulist"><div class="title">Core Objects Evolution</div><ul><li><p>As of Kubernetes 1.9/OpenShift 3.9, these objects are known as <strong>Core Workloads API</strong> and are fully supported:</p><div class="ulist"><ul><li><p><code>Pod</code></p></li><li><p><code>ReplicationController</code></p></li><li><p><code>DeploymentConfig</code> (OpenShift only)</p></li><li><p><code>ReplicaSet</code></p></li><li><p><code>Deployment</code></p></li><li><p><code>DaemonSet</code></p></li><li><p><code>StatefulSet</code></p></li></ul></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p>
+<div class="paragraph"></div><p>In the Beginning there were Pods&#8212;tightly coupled containers that share resource requirements, networking, storage, and a life cycle. Pods were useful, but as it turns out, users wanted to seamlessly, reproducibly, and automatically create many identical replicas of the same Pod, so Kubernetes created the ReplicationController.</p>
+<div class="paragraph"></div><p>A ReplicaSet is almost identical to a ReplicationController, but it accepts selector sets (e.g., env=qa, db=test) instead of just one selector.</p>
+<div class="paragraph"></div><p>Replication was a step forward, but what users really needed was higher-level orchestration of their replicated Pods. They wanted rolling updates, rollbacks, and rollovers. So the OpenShift team created the DeploymentConfig. DeploymentConfigs were also useful, and OpenShift users were happy. In order to allow all OSS Kubernetes uses to share in the elation, and to take advantage of set-based label selectors, ReplicaSet and Deployment were added to Kubernetes, providing rolling updates, rollbacks, and rollovers for all Kubernetes users.</p>
+<div class="paragraph"></div><p>That mostly solved the problem of orchestrating containerized 12-factor apps on Kubernetes, so the community turned its attention to a different problem. Replicating a Pod &lt;n&gt; times is not the right hammer for every nail in your cluster. Sometimes, you need to run a Pod on every Node, or on a subset of Nodes&#8212;for example, shared side cars like log shippers and metrics collectors, Kubernetes add-ons, and Distributed File Systems). The state of the art was Pods combined with NodeSelectors, or static Pods, but this is unwieldy. After having grown used to the ease of automation provided by Deployments, users demanded the same features for this category of application, so DaemonSet was added Kubernetes.</p>
+<div class="paragraph"></div><p>While Deployments are great for stateless workloads, they do not provide the right guarantees for the orchestration of distributed systems. These applications can require stable network identities, ordered and sequential deployments, updates, and deletions, and stable, durable storage. StatefulSet was added to Kubernetes to address this category of application.</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_deployments"><h2>Deployments</h2><div class="scrollbar"><div class="ulist"><div class="title">Use Cases for <code>Deployment</code></div><ul><li><p>Create <code>Deployment</code> to roll out <code>ReplicaSet</code></p></li><li><p>Declare new state of pods by updating <code>PodTemplateSpec</code> of <code>Deployment</code></p></li><li><p>Roll back to earlier <code>Deployment</code> revision if current state of <code>Deployment</code> not stable</p></li><li><p>Scale up <code>Deployment</code> to facilitate more load</p></li><li><p>Pause <code>Deployment</code> to apply multiple fixes to <code>PodTemplateSpec</code>, then resume it to start new rollout</p></li><li><p>Use status of <code>Deployment</code> as indicator that rollout is stuck</p></li><li><p>Clean up older, unneeded <code>ReplicaSet</code> objects</p></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p>
+<div class="paragraph"></div><p>The following are typical use cases for Deployments:</p>
+<div class="ulist"><ul><li><p>Create a Deployment to roll out a ReplicaSet. The ReplicaSet creates Pods in the background. Check the status of the rollout to see if it succeeds or not.</p></li><li><p>Declare the new state of the Pods by updating the PodTemplateSpec of the Deployment. A new ReplicaSet is created and the Deployment manages moving the Pods from the old ReplicaSet to the new one at a controlled rate. Each new ReplicaSet updates the revision of the Deployment.</p></li><li><p>Roll back to an earlier Deployment revision if the current state of the Deployment is not stable. Each rollback updates the revision of the Deployment.</p></li><li><p>Scale up the Deployment to facilitate more load.</p></li><li><p>Pause the Deployment to apply multiple fixes to its PodTemplateSpec and then resume it to start a new rollout.</p></li><li><p>Use the status of the Deployment as an indicator that a rollout has stuck.</p></li><li><p>Clean up older ReplicaSets that you do not need anymore.</p></li></ul></div></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_deployments_2"><h2>Deployments</h2><div class="scrollbar"><div class="listingblock"><div class="title">Manipulating Deployments</div><div class="content"><pre class="highlight"><code class="text language-text">oc rollout latest &lt;dcname&gt;
+oc rollout history dc/&lt;name&gt; [--revision=1]
+oc deploy --cancel dc/&lt;name&gt;
+oc deploy --retry dc/&lt;name&gt;
+oc rollout undo dc/&lt;name&gt; [--to-revision=1]
+oc rollout pause dc/&lt;name&gt;
+oc rollout resume dc/&lt;name&gt;
+oc scale dc/&lt;name&gt; --replicas=10
+oc autoscale dc/&lt;name&gt; --min=10 --max=15 --cpu-percent=80
+oc set resources dc/&lt;name&gt; -c=&lt;container&gt; --limits=cpu=200m,memory=512Mi</code></pre></div></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p>
+<div class="paragraph"></div><p>The cancellation is a best-efforts operation, and may take some time to complete. The replication controller may deploy partially or completely before the cancellation is effective. When canceled, the deployment configuration is automatically rolled back by scaling up the previous running replication controller.</p>
+<div class="paragraph"></div><p>Retrying a deployment restarts the deployment process and does not create a new deployment revision. The restarted replication controller has the same configuration that it had when it failed.</p>
+<div class="paragraph"></div><p>A rollback disables image change triggers on deployment configuration. This prevents accidentally starting a new deployment process after the rollback completes.</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_deployments_3"><h2>Deployments</h2><div class="scrollbar"><div class="ulist"><div class="title">Deployment Triggers</div><ul><li><p>Deployment configuration can contain triggers</p><div class="ulist"><ul><li><p>Drive creation of new deployment processes in response to cluster events</p></li></ul></div></li><li><p>Available triggers:</p><div class="ulist"><ul><li><p>Configuration change</p></li><li><p>Image change</p></li></ul></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_deployments_4"><h2>Deployments</h2><div class="scrollbar"><div class="ulist"><div class="title">Deployment Triggers - <code>ConfigChange</code></div><ul><li><p>Trigger: change detected in deployment configuration pod template</p></li><li><p>Result: new replication controller created</p><div class="listingblock"><div class="content"><pre class="highlight"><code class="yaml language-yaml">triggers:
+  - type: "ConfigChange"</code></pre></div></div></li></ul></div>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="icon-note" title="Note"></i></td><td class="content"><div class="paragraph"></div><p>If a <code>ConfigChange</code> trigger is defined in a deployment configuration, the first replication controller is automatically created soon after the deployment configuration itself is created. The deployment configuration is not paused when the replication controller is created.</p></td></tr></table></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_deployments_5"><h2>Deployments</h2><div class="scrollbar"><div class="ulist"><div class="title">Deployment Triggers - <code>ImageChange</code></div><ul><li><p>Trigger: change in image stream tag content (new version of image pushed)</p></li><li><p>Result: new replication controller created</p><div class="listingblock"><div class="content"><pre class="highlight"><code class="yaml language-yaml">triggers:
+  - type: "ImageChange"
+    imageChangeParams:
+      automatic: true
+      from:
+        kind: "ImageStreamTag"
+        name: "origin-ruby-sample:latest"
+        namespace: "myproject"
+      containerNames:
+        - "helloworld"</code></pre></div></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_deployments_6"><h2>Deployments</h2><div class="scrollbar"><div class="ulist"><div class="title">Deployment Triggers Using the Command Line</div><ul><li><p>Set <code>ImageChange</code> and <code>ConfigChange</code> triggers:</p><div class="listingblock"><div class="content"><pre class="highlight"><code class="text language-text">oc set triggers dc/&lt;name&gt; --from-image=myproject/origin-ruby-sample:latest -c helloworld
+
+oc set triggers dc/&lt;name&gt; --from-config=true</code></pre></div></div></li><li><p>Set all triggers <code>manual</code>, <code>auto</code>, <code>remove-all</code>:</p><div class="listingblock"><div class="content"><pre class="highlight"><code class="text language-text">oc set triggers dc/&lt;name&gt; --manual
+oc set triggers dc/&lt;name&gt; --auto
+oc set triggers dc/&lt;name&gt; --remove-all</code></pre></div></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_deployment_strategies"><h2>Deployment Strategies</h2><div class="scrollbar"><div class="ulist"><ul><li><p>Deployment strategy determines deployment process</p></li><li><p>Defined by deployment configuration</p></li><li><p>Uses readiness checks to determine if new pod is ready for use</p><div class="ulist"><ul><li><p>If check fails, deployment configuration continues trying to run pod until timeout</p></li><li><p>Timeout value set in <code>TimeoutSeconds</code> in <code>dc.spec.strategy.*params</code></p></li><li><p>Default: <code>10m</code></p></li></ul></div></li><li><p>Available deployment strategies:</p><div class="ulist"><ul><li><p>Rolling (default)</p></li><li><p>Recreate</p></li></ul></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p>
+<div class="paragraph"></div><p>Recreate Strategy Use Cases</p>
+<div class="ulist"><ul><li><p>Use Recreate when you:</p><div class="ulist"><ul><li><p>Must run migrations or other data transformations before new code starts</p></li><li><p>Do not support new and old versions of application code running at same time</p></li><li><p>Want to use <code>ReadWriteOnce</code> (RWO) volume that does not support being shared between multiple replicas</p></li></ul></div></li><li><p>Recreate deployment incurs downtime:</p><div class="ulist"><ul><li><p>For brief period, no application instances running</p></li><li><p>Old and new code do not run at same time</p></li></ul></div></li></ul></div></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="__code_replicaset_code_and_code_replicationcontroller_code"><h2><code>ReplicaSet</code> and <code>ReplicationController</code></h2><div class="scrollbar"><div class="ulist"><ul><li><p><code>ReplicaSet</code> and <code>ReplicationController</code> can be used on own</p></li><li><p>Control and monitor number of running pods</p></li><li><p>Usually managed by higher-level object:</p><div class="ulist"><ul><li><p><code>Deployment</code> manages <code>ReplicaSet</code></p></li><li><p><code>DeploymentConfig</code> manages <code>ReplicationController</code></p></li></ul></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="__code_statefulset_code"><h2><code>StatefulSet</code></h2><div class="scrollbar"><div class="ulist"><div class="title">Overview</div><ul><li><p>Manages deployment and scaling of set of pods</p></li><li><p>Guarantees ordering by maintaining unique, sticky identity for each pod</p></li><li><p>Like <code>Deployment</code>, <code>StatefulSet</code> manages <code>Pod</code> objects based on identical container specification</p><div class="ulist"><ul><li><p>Although specifications are same, <code>Pod</code> objects in <code>StatefulSet</code> are not interchangeable</p></li><li><p>Each <code>Pod</code> object has persistent identifier that it maintains across any rescheduling</p></li></ul></div></li><li><p><code>StatefulSet</code> also operates according to controller pattern</p></li><li><p>Define desired state in <code>StatefulSet</code> object, <code>StatefulSet</code> controller makes updates to get there from current state</p></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="__code_statefulset_code_2"><h2><code>StatefulSet</code></h2><div class="scrollbar"><div class="ulist"><div class="title">Using <code>StatefulSet</code></div><ul><li><p><code>StatefulSet</code> valuable for applications that require one or more of following:</p><div class="ulist"><ul><li><p>Stable, unique network identifiers</p></li><li><p>Stable, persistent storage</p></li><li><p>Ordered, graceful deployment and scaling</p></li><li><p>Ordered, graceful deletion and termination</p></li><li><p>Ordered, automated rolling updates</p></li></ul></div></li><li><p><em>Stable</em> synonymous with persistence across pod (re)scheduling</p></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="__code_statefulset_code_3"><h2><code>StatefulSet</code></h2><div class="scrollbar"><div class="ulist"><div class="title">Limitations</div><ul><li><p>Storage for pod must be either of following:</p><div class="ulist"><ul><li><p>Provisioned by <code>PersistentVolume</code> provisioner based on requested storage class</p></li><li><p>Pre-provisioned by administrator</p></li></ul></div></li><li><p>Deleting and scaling down <code>StatefulSet</code> does <strong>not</strong> delete volumes associated with <code>StatefulSet</code></p><div class="ulist"><ul><li><p>Done to ensure data safety, which is generally more valuable than automatic purge of all related <code>StatefulSet</code> resources</p></li></ul></div></li><li><p><code>StatefulSet</code> currently requires headless service to be responsible for network identity of pods</p><div class="ulist"><ul><li><p>You are responsible for creating service</p></li></ul></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="__code_statefulset_code_4"><h2><code>StatefulSet</code></h2><div class="scrollbar"><div class="listingblock"><div class="title">Headless Service Example</div><div class="content"><pre class="highlight"><code class="yaml language-yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  ports:
+  - port: 80
+    name: web
+  clusterIP: None
+  selector:
+    app: nginx</code></pre></div></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p>
+<div class="paragraph"></div><p>The example demonstrates the components of a StatefulSet.</p>
+<div class="paragraph"></div><p>A Headless Service, named <code>nginx</code>, is used to control the network domain.</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="__code_statefulset_code_5"><h2><code>StatefulSet</code></h2><div class="scrollbar"><div class="listingblock"><div class="title">StatefulSet Example</div><div class="content"><pre class="highlight"><code class="yaml language-yaml">apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: web
+spec:
+  selector:
+    matchLabels:
+      app: nginx # has to match .spec.template.metadata.labels
+  serviceName: "nginx"
+  replicas: 3 # by default is 1
+  template:
+    metadata:
+      labels:
+        app: nginx # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: nginx
+        image: k8s.gcr.io/nginx-slim:0.8
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html</code></pre></div></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p>
+<div class="paragraph"></div><p>The StatefulSet, named <code>web</code>, has a Spec that indicates that three replicas of the <code>nginx</code> container will be launched in unique Pods.</p>
+<div class="paragraph"></div><p>You must set the <code>spec.selector</code> field of a StatefulSet to match the labels of its <code>.spec.template.metadata.labels</code>. Prior to Kubernetes 1.8, the <code>spec.selector</code> field was defaulted when omitted. In 1.8 and later versions, failing to specify a matching Pod Selector results in a validation error during StatefulSet creation</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="__code_statefulset_code_6"><h2><code>StatefulSet</code></h2><div class="scrollbar"><div class="listingblock"><div class="title"><code>volumeClaimTemplates</code> Example</div><div class="content"><pre class="highlight"><code class="yaml language-yaml">  volumeClaimTemplates:
+  - metadata:
+      name: www
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: my-storage-class
+      resources:
+        requests:
+          storage: 1Gi</code></pre></div></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p>
+<div class="paragraph"></div><p>The volumeClaimTemplates provide stable storage using PersistentVolumes provisioned by a PersistentVolume provisioner.</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="__code_statefulset_code_7"><h2><code>StatefulSet</code></h2><div class="scrollbar"><div class="ulist"><div class="title"><code>StatefulSet</code> Pods Have Unique Identity</div><ul><li><p>Ordinal index</p><div class="ulist"><ul><li><p>Each pod in <code>StatefulSet</code> assigned integer ordinal in range [0,N] that is unique over set</p></li></ul></div></li><li><p>Stable network ID</p><div class="ulist"><ul><li><p>Each pod derives host name from name of <code>StatefulSet</code> and ordinal of pod</p><div class="ulist"><ul><li><p>Pattern for constructed host name is <code>$(statefulset name)-$(ordinal)</code></p></li></ul></div></li><li><p>Headless service can control domain of its pods</p><div class="ulist"><ul><li><p>Domain managed by this service takes form of <code>$(service name).$(namespace).svc.cluster.local</code></p></li></ul></div></li></ul></div></li><li><p>Stable storage</p><div class="ulist"><ul><li><p>One <code>PersistentVolume</code> for each pod from <code>volumeClaimTemplate</code></p></li></ul></div></li><li><p>Identity sticks to pod, regardless of which node it is (re)scheduled on</p></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p>
+<div class="paragraph"></div><p>StatefulSet Pods have a unique identity that is comprised of an ordinal, a stable network identity, and stable storage. The identity sticks to the Pod, regardless of which node it is scheduled or rescheduled on.</p>
+<div class="ulist"><ul><li><p>Ordinal Index: For a StatefulSet with N replicas, each Pod in the StatefulSet is assigned an integer ordinal, in the range [0,N], that is unique over the set.</p></li><li><p>Stable Network ID: Each Pod in a StatefulSet derives its host name from the name of the StatefulSet and the ordinal of the Pod. The pattern for the constructed host name is <code>$(statefulset name)-$(ordinal)</code>. In the earlier <code>nginx</code> example of a StatefulSet, this creates three Pods named <code>web-0</code>, <code>web-1</code>, and <code>web-2</code>.</p></li><li><p>A StatefulSet can use a Headless Service to control the domain of its Pods. The domain managed by this Service takes the form of <code>$(service name).$(namespace).svc.cluster.local</code>, where <code>cluster.local</code> is the cluster domain. As each Pod is created, it gets a matching DNS subdomain, taking the form of <code>$(podname).$(governing service domain)</code>, where the governing service is defined by the <code>serviceName</code> field on the StatefulSet.</p></li><li><p>Stable storage: OpenShift creates one PersistentVolume for each VolumeClaimTemplate. In the <code>nginx</code> example, each Pod receives a single PersistentVolume with a StorageClass of <code>my-storage-class</code> and 1 GB of provisioned storage. If no StorageClass is specified, then the default StorageClass is used. When a Pod is (re)scheduled onto a node, its volumeMounts mount the PersistentVolumes associated with its PersistentVolume Claims. Note that the PersistentVolumes associated with the Pods’ PersistentVolume Claims are not deleted when the Pods or StatefulSet are deleted. This must be done manually.</p></li></ul></div></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="__code_statefulset_code_8"><h2><code>StatefulSet</code></h2><div class="scrollbar"><div class="ulist"><div class="title">Deployment and Scaling Guarantees</div><ul><li><p>For <code>StatefulSet</code> with N replicas:</p><div class="ulist"><ul><li><p>Deployed pods are created sequentially in order from {0..N-1}</p></li><li><p>Pods are terminated in reverse order from {N-1..0}</p></li></ul></div></li><li><p>Before scaling operation is applied to pod, all predecessors must be running and ready</p></li><li><p>Before pod is terminated, all successors must be completely shut down</p></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p>
+<div class="paragraph"></div><p>When the earlier <code>nginx</code> example is created, three Pods are deployed in the order <code>web-0</code>, <code>web-1</code>, and <code>web-2</code>. <code>web-1</code> is not deployed before <code>web-0</code> is Running and Ready, and <code>web-2</code> is not deployed until <code>web-1</code> is Running and Ready. If <code>web-0</code> fails after <code>web-1</code> is Running and Ready but before <code>web-2</code> is launched, <code>web-2</code> is not launched until <code>web-0</code> is successfully relaunched and becomes Running and Ready.</p>
+<div class="paragraph"></div><p>If a user scales down this deployment by patching the StatefulSet so that <code>replicas=1</code>, <code>web-2</code> is terminated first. <code>web-1</code> is not terminated until <code>web-2</code> is fully shut down and deleted. However, if <code>web-0</code> fails after <code>web-2</code> has been terminated and is completely shut down but before <code>web-1</code> can be terminated, <code>web-1</code> is not terminated until <code>web-0</code> has relaunched and is Running and Ready.</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="__code_statefulset_code_9"><h2><code>StatefulSet</code></h2><div class="scrollbar"><div class="ulist"><div class="title">Update Strategies</div><ul><li><p>For <code>StatefulSet</code> pods, use <code>.spec.updateStrategy</code> field to configure and disable automated rolling updates for:</p><div class="ulist"><ul><li><p>Containers</p></li><li><p>Labels</p></li><li><p>Resource request/limits</p></li><li><p>Annotations</p></li></ul></div></li><li><p>Possible values:</p><div class="ulist"><ul><li><p><code>OnDelete</code></p><div class="ulist"><ul><li><p>Users must manually delete pods to cause controller to create new pods that reflect modifications made to <code>StatefulSet</code> <code>.spec.template</code></p></li></ul></div></li><li><p><code>RollingUpdate</code></p><div class="ulist"><ul><li><p>Delete and recreate each <code>StatefulSet</code> pod in same order as pod termination</p></li><li><p><code>RollingUpdate</code> update strategy can be partitioned by specifying <code>.spec.updateStrategy.rollingUpdate.partition</code></p></li></ul></div></li></ul></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p>
+<div class="paragraph"></div><p>In Kubernetes 1.7 and later, StatefulSet’s <code>.spec.updateStrategy</code> field allows you to configure and disable automated rolling updates for containers, labels, resource request/limits, and annotations for the Pods in a StatefulSet.</p>
+<div class="paragraph"></div><p>The OnDelete update strategy implements the legacy behavior in version 1.6 and earlier. When a StatefulSet’s <code>.spec.updateStrategy.type</code> is set to OnDelete, the StatefulSet controller does not automatically update the Pods in a StatefulSet. Users must manually delete Pods to cause the controller to create new Pods that reflect modifications made to a StatefulSet’s <code>.spec.template</code>.</p>
+<div class="paragraph"></div><p>The RollingUpdate update strategy implements an automated rolling update for the Pods in a StatefulSet. It is the default strategy when <code>spec.updateStrategy</code> is left unspecified. When a StatefulSet’s ``.spec.updateStrategy.type` is set to RollingUpdate, the StatefulSet controller deletes and recreates each Pod in the StatefulSet. It proceeds in the same order as Pod termination, from the largest ordinal to the smallest, updating each Pod one at a time. It waits until an updated Pod is Running and Ready prior to updating its predecessor.</p>
+<div class="paragraph"></div><p>The RollingUpdate update strategy can be partitioned, by specifying a <code>.spec.updateStrategy.rollingUpdate.partition</code>. If a partition is specified, all Pods with an ordinal that is greater than or equal to the partition are updated when the StatefulSet’s <code>.spec.template</code> is updated. All Pods with an ordinal that is less than the partition are not updated, and if they are deleted, they are recreated at the previous version. If a StatefulSet’s <code>.spec.updateStrategy.rollingUpdate.partition</code> is greater than its <code>.spec.replicas</code>, updates to its <code>.spec.template</code> are not propagated to its Pods. In most cases you will not need to use a partition, but they are useful if you want to stage an update, roll out a canary, or perform a phased rollout.</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="__code_daemonset_code"><h2><code>DaemonSet</code></h2><div class="scrollbar"><div class="ulist"><div class="title">Overview</div><ul><li><p>All (or some) nodes run copy of pod specified in <code>DaemonSet</code> object</p></li><li><p>As nodes are added to cluster, pods are added to them</p></li><li><p>As nodes are removed from cluster, those pods are garbage-collected</p></li><li><p>Deleting <code>DaemonSet</code> cleans up pods it created</p></li><li><p>Typical uses of <code>DaemonSet</code>:</p><div class="ulist"><ul><li><p>Running cluster storage daemon, such as <code>glusterd</code> or <code>ceph</code>, on each node</p></li><li><p>Running logs collection daemon, such as Fluentd or <code>logstash</code>, on every node</p></li><li><p>Running node monitoring daemon on every node</p><div class="ulist"><ul><li><p>Examples: Fluentd, Prometheus Node Exporter, <code>collectd</code>, Datadog agent, New Relic agent,  Ganglia gmond</p></li></ul></div></li></ul></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p>
+<div class="paragraph"></div><p>A DaemonSet ensures that all or some Nodes run a copy of a Pod. As Nodes are added to the cluster, Pods are added to them. As Nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet cleans up the Pods it created.</p>
+<div class="paragraph"></div><p>Some typical uses of a DaemonSet are:</p>
+<div class="ulist"><ul><li><p>Running a cluster storage daemon, such as glusterd or ceph, on each node.</p></li><li><p>Running a logs collection daemon, such as fluentd or logstash, on every node.</p></li><li><p>Running a node monitoring daemon, such as Prometheus Node Exporter, collectd, Datadog agent, New Relic agent, or Ganglia gmond, on every node.</p></li></ul></div>
+<div class="paragraph"></div><p>In a simple case, one DaemonSet, covering all nodes, is used for each type of daemon. A more complex setup might use multiple DaemonSets for a single type of daemon, but with different flags and/or different memory and CPU requests for different hardware types.</p>
+<div class="admonitionblock warning"><table><tr><td class="icon"><i class="icon-warning" title="Warning"></i></td><td class="content">DaemonSets require elevated permissions to be deployed. "Regular" developers can not create DaemonSets.</td></tr></table></div></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="__code_daemonset_code_2"><h2><code>DaemonSet</code></h2><div class="scrollbar"><div class="ulist"><div class="title">Communicating with Pods in <code>DaemonSet</code></div><ul><li><p>Push: Pods in <code>DaemonSet</code> configured to send updates to another service such as statistics database</p><div class="ulist"><ul><li><p>Pods do not have clients</p></li></ul></div></li><li><p>NodeIP and known port: Pods in <code>DaemonSet</code> can use hostPort so that pods are reachable via node IPs</p><div class="ulist"><ul><li><p>Clients know list of node IPs and know port by convention</p></li></ul></div></li><li><p>DNS: Create headless service with same pod selector and then discover <code>DaemonSet</code> objects using endpoints resource</p><div class="ulist"><ul><li><p>Or retrieve multiple A records from DNS</p></li></ul></div></li><li><p>Service: Create service with same pod selector, use service to reach daemon on random node</p><div class="ulist"><ul><li><p>No way to reach specific node</p></li></ul></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p>
+<div class="paragraph"></div><p>Some possible patterns for communicating with Pods in a DaemonSet are:</p>
+<div class="ulist"><ul><li><p>Push: Pods in the DaemonSet are configured to send updates to another service, such as a stats database. They do not have clients.</p></li><li><p>NodeIP and Known Port: Pods in the DaemonSet can use a hostPort, so that the pods are reachable via the node IPs. Clients know the list of node IPs somehow, and know the port by convention. Node Ports require elevated permissions.</p></li><li><p>DNS: Create a headless service with the same pod selector, and then discover DaemonSets using the endpoints resource or retrieve multiple A records from DNS.</p></li><li><p>Service: Create a service with the same Pod selector, and use the service to reach a daemon on a random node. This pattern does not provide a way to reach a specific node.</p></li></ul></div></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_jobs_and_cronjobs"><h2>Jobs and Cronjobs</h2><div class="scrollbar"><div class="ulist"><ul><li><p>Job runs any number of pods to completion</p></li><li><p>Tracks overall progress of task</p></li><li><p>Updates status with information about active, succeeded, failed pods</p></li><li><p>Deleting job cleans up any created pods</p></li><li><p>Cronjobs use cron notation to schedule repeating jobs</p><div class="ulist"><ul><li><p><code>schedule: "*/1 * * * ?"</code> to run every minute</p></li></ul></div></li><li><p>Use <code>oc run</code> to create Jobs and Cronjobs</p></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p>
+<div class="paragraph"></div><p>Additional Settings:
+* Setting Maximum Job Duration
+<strong> When defining job, can define maximum duration
+</strong>* To do so, set activeDeadlineSeconds field
+<strong>* Specified in seconds
+</strong>* Not set by default
+<strong>* When not set, no maximum duration enforced
+</strong> Maximum duration counted from time when first pod gets scheduled in system
+<strong>* Defines how long job can be active
+</strong>* Tracks overall time of execution
+<strong>*</strong> Irrelevant to number of completions (i.e., number of pods needed to execute task)
+* After reaching specified timeout, OpenShift terminates job</p>
+<div class="ulist"><ul><li><p>Deadline (Optional):</p><div class="ulist"><ul><li><p>Deadline in seconds for starting job if scheduled time missed for any reason</p></li><li><p>Missed job executions counted as failed</p></li><li><p>If not specified, no deadline set</p></li></ul></div></li><li><p>ConcurrencyPolicy (Optional):</p><div class="ulist"><ul><li><p>Specifies how to treat concurrent jobs within scheduled job</p></li><li><p>Options:</p><div class="ulist"><ul><li><p>Allow: Allows scheduled jobs to run concurrently</p></li><li><p>Forbid: Forbids concurrent runs, skips next run if current run not finished</p></li><li><p>Replace: Cancels currently running job, replaces it with new one</p></li></ul></div></li><li><p>Only one concurrent policy may be specified</p></li><li><p>If not specified, defaults to Allow</p></li></ul></div></li></ul></div></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_blue_green_deployments"><h2>Blue-Green Deployments</h2><div class="scrollbar"><div class="ulist"><ul><li><p>Use blue-green deployment to test new application version in production environment before moving traffic to it</p></li><li><p>These deployments:</p><div class="ulist"><ul><li><p>Run two versions of application at same time</p></li><li><p>Move production traffic from old to new version</p></li></ul></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_blue_green_deployments_2"><h2>Blue-Green Deployments</h2><div class="scrollbar"><div class="ulist"><div class="title">Using a Route and Two Services</div><ul><li><p>Route points to service</p></li><li><p>To point to different service, change at any time</p></li><li><p>To test new version of code, connect to new service before production traffic is routed to it</p></li><li><p>To roll back, change route back</p></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_blue_green_deployments_3"><h2>Blue-Green Deployments</h2><div class="scrollbar"><div class="olist arabic"><div class="title">Example of Using a Route and Two Services</div><ol class="arabic"><li><p>Create two copies of application:</p><div class="listingblock"><div class="content"><pre class="highlight"><code class="text language-text">oc new-app openshift/deployment-example:v1 --name=example-green
+oc new-app openshift/deployment-example:v2 --name=example-blue</code></pre></div></div></li><li><p>Create route that points to old service:</p><div class="listingblock"><div class="content"><pre class="highlight"><code class="text language-text">oc expose svc/example-green --name=bluegreen-example</code></pre></div></div></li><li><p>Edit route and change service name to <code>example-blue</code>:</p><div class="listingblock"><div class="content"><pre class="highlight"><code class="text language-text">oc patch route/bluegreen-example -p '{"spec":{"to":{"name":"example-blue"}}}'</code></pre></div></div></li></ol></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p>
+<div class="paragraph"></div><p>This method is better if the blue-green deployment includes complete deletion and re-creation of the other deployment.</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_blue_green_deployments_4"><h2>Blue-Green Deployments</h2><div class="scrollbar"><div class="olist arabic"><div class="title">Example of Using Two Services with an A/B Route</div><ol class="arabic"><li><p>Create two copies of application:</p><div class="listingblock"><div class="content"><pre class="highlight"><code class="text language-text">oc new-app openshift/deployment-example:v1 --name=example-green
+oc new-app openshift/deployment-example:v2 --name=example-blue</code></pre></div></div></li><li><p>Create route that points to first service and set second service as additional back end with weight 0:</p><div class="listingblock"><div class="content"><pre class="highlight"><code class="text language-text">oc expose svc/example-green --name=bluegreen-example
+oc set route-backends bluegreen-example example-green=100 example-blue=0</code></pre></div></div></li><li><p>Change weights to roll over to blue:</p><div class="listingblock"><div class="content"><pre class="highlight"><code class="text language-text">oc set route-backends bluegreen-example example-green=0 example-blue=100</code></pre></div></div></li></ol></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p>
+<div class="paragraph"></div><p>This method is easier if both versions stay running at the same time and only one receives traffic.
+This method also allows for easy canary deployment&#8212;e.g., route 10% over to the new version and after a while route everything.</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_health_checks"><h2>Health Checks</h2><div class="scrollbar"><div class="ulist"><ul><li><p>Reasons software system components become unhealthy:</p><div class="ulist"><ul><li><p>Transient issues such as temporary connectivity loss</p></li><li><p>Configuration errors</p></li><li><p>Problems with external dependencies</p></li></ul></div></li><li><p>Features in OpenShift applications that detect and handle unhealthy containers:</p><div class="ulist"><ul><li><p>Liveness probe: checks if container in which it is configured is still running</p></li><li><p>Readiness probe: determines if container is ready to service requests</p></li></ul></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_health_checks_2"><h2>Health Checks</h2><div class="scrollbar"><div class="ulist"><div class="title">Probe Timeouts</div><ul><li><p>Timing of probe controlled by two fields</p></li><li><p>Both expressed in units of seconds</p></li></ul></div>
+<table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:33%" /><col style="width:66%" /></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Field</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>initialDelaySeconds</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">How long to wait after container starts to begin probe</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>timeoutSeconds</code></p></td><td class="tableblock halign-left valign-top"><div><div class="paragraph"></div><p>How long to wait for probe to finish</p>
+<div class="ulist"><ul><li><p>If time exceeded, OpenShift considers probe to have failed</p></li><li><p>Default: <code>1</code></p></li></ul></div></div></td></tr></tbody></table>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_probe_configuration"><h2>Probe Configuration</h2><div class="scrollbar"><div class="ulist"><div class="title">HTTP Checks</div><ul><li><p>Ideal for complex applications that can return <code>200</code> status when completely initialized</p></li><li><p>Kubelet uses webhook to determine health of container</p></li><li><p>Check deemed successful if hook returns HTTP response code between <code>200</code> and <code>399</code></p><div class="listingblock"><div class="content"><pre class="highlight"><code class="yaml language-yaml">...
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: 8080
+  initialDelaySeconds: 15
+  timeoutSeconds: 1
+...</code></pre></div></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_probe_configuration_2"><h2>Probe Configuration</h2><div class="scrollbar"><div class="ulist"><div class="title">Container Execution Checks</div><ul><li><p>Kubelet executes command inside container</p></li><li><p>Check successful if exits with status <code>0</code></p><div class="listingblock"><div class="content"><pre class="highlight"><code class="yaml language-yaml">...
+livenessProbe:
+  exec:
+    command:
+    - cat
+    - /tmp/health
+  initialDelaySeconds: 15
+  timeoutSeconds: 1
+...</code></pre></div></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_probe_configuration_3"><h2>Probe Configuration</h2><div class="scrollbar"><div class="ulist"><div class="title">TCP Socket Checks</div><ul><li><p>Ideal for applications that do not start listening until initialization complete</p></li><li><p>Kubelet attempts to open socket to container</p></li><li><p>Container considered healthy if check establishes connection</p><div class="listingblock"><div class="content"><pre class="highlight"><code class="yaml language-yaml">...
+livenessProbe:
+  tcpSocket:
+    port: 8080
+  initialDelaySeconds: 15
+  timeoutSeconds: 1
+...</code></pre></div></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_sidecar_containers"><h2>Sidecar Containers</h2><div class="scrollbar"><div class="ulist"><div class="title">Overview</div><ul><li><p>Sidecar containers run alongside primary container in pod</p></li><li><p>Have two specific functions:</p><div class="ulist"><ul><li><p>Take log files from file and redirect to <code>stdout</code></p><div class="ulist"><ul><li><p>Mostly custom containers</p></li></ul></div></li><li><p>Provide authentication to pods that do not have authentication built in</p><div class="ulist"><ul><li><p>OpenShift provides <code>oauth-proxy</code> container</p></li></ul></div></li></ul></div></li><li><p>Add to pod template</p><div class="ulist"><ul><li><p>Share pod resources such as volume mounts, shared memory, etc.</p></li></ul></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_summary"><h2>Summary</h2><div class="scrollbar"><div class="ulist"><ul><li><p>Kubernetes Core Workload API</p></li><li><p>Deployments</p></li><li><p><code>ReplicaSet</code> and <code>Replication Controller</code></p></li><li><p><code>StatefulSet</code></p></li><li><p><code>DaemonSet</code></p></li><li><p><code>Jobs</code> and <code>Cronjobs</code></p></li><li><p>Blue-Green Deployments</p></li><li><p>Health Checks</p></li><li><p>Probe Configuration</p></li><li><p>Sidecar Containers</p></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_module_completion"><h2>Module Completion</h2><div class="scrollbar"><script type="text/javascript" >
+
+    var moduleCompletionVersion = "1.8"
+    var host = window.parent.location.host;
+    console.log("Module Completion:  version = "+moduleCompletionVersion);
+
+    /*
+        Dokeos behavior:
+            - used to re-direct after having notified LMS of module completion
+        Sumtotal behavior:
+            - Not used
+            - Student should just close the browser tab for the module (apparently the originating tab stays open and allows the student to navigate to the next module)
+    */
+    function getCourseHomepageURL() {
+
+        //uriString = "http://www.redhat.com";
+        //uriString = "https://rh.dokeos.com/main/newscorm/lp_controller.php?cidReq=SCORMTEST&action=return_to_course_homepage"
+
+        uriString = document.location.origin;
+        uriString += "/main/course_home";
+        console.log("getCourseHomepageURL = "+uriString);
+        return uriString;
+    }
+
+     /*
+     Dokeos behavior:
+        - Request URL:      <a href="https://rh.dokeos.com/main/newscorm/lp_ajax_save_item.php">https://rh.dokeos.com/main/newscorm/lp_ajax_save_item.php</a>
+        - Response body:    update_toc('completed','6');update_progress_bar('1', '1', '%');update_stats();
+
+        NOTE:  Need to execute the module in Dokeos as a Learner to see results in Reporting.
+            - The Reporting displays results of Learners only.
+            - If you take the module as a Trainer you can see the progress in the Modules tool as per this screenshot:  <a href="http://snag.gy/gUgcp.jpg">http://snag.gy/gUgcp.jpg</a>
+    */
+    function SetSCOComplete() {
+        var SD = window.parent;
+
+        if (typeof SD.SetReachedEnd != "undefined") {
+            //This is the last page so set it complete
+            SD.SetReachedEnd();
+            SD.CommitData();
+            console.log("SetSCOComplete() just called SD.SetReachedEnd() and SD.CommitData()");
+
+            document.getElementById("completeDiv").style.display = "none";
+            console.log("typeof myDokeosWebPath = "+ typeof dokeosWebPath);
+            if(host.indexOf("dokeos") > 0) {
+                console.log("SetSCOComplete() detecting Dokeos environment.  Will display continue button");
+                document.getElementById("continueDiv").style.display = "block";
+            } else {
+                console.log("SetSCOComplete() detecting non-Dokeos environment.  Will display close button");
+                document.getElementById("closeDiv").style.display = "block";
+            }
+        }else {
+            noSCOmessage = "SetSCOComplete() LMS does not appear to support the SetReachedEnd() function";
+            alert(noSCOmessage);
+        }
+
+    }
+
+</script>
+
+<div id="completeDiv" >
+    <p>Nice job!</p>
+    <p> Click the button below to complete this module of the course:</p>
+    <input type="button" id="completeModule" value="Complete Module" style="font-size:1.0em;font-family:Oswald, sans-serif;" /></br/>
+</div>
+
+<div id="continueDiv" style="display:none">
+    <p>Click the button below to continue to the course homepage:</p>
+    <input type="button" id="continueModule" value="Continue" style="font-size:1.0em;font-family:Oswald, sans-serif;" onclick="top.location.href=getCourseHomepageURL()" /></br/>
+</div>
+
+<div id="closeDiv" style="display:none">
+    <p>Please continue with the next item in the course. </p>
+</div>
+
+
+<script type="text/javascript" >
+    document.getElementById("completeDiv").style.display = "visible";
+    document.getElementById("continueDiv").style.display = "none";
+    document.getElementById("closeDiv").style.display = "none";
+
+    // invoke SetSCOComplete function when the completeModule button is clicked
+    var el = document.getElementById("completeModule");
+    if (typeof el.addEventListener != "undefined") {
+        el.addEventListener("click", SetSCOComplete, false);
+    } else if (el.attachEvent) {
+        el.attachEvent('onclick', SetSCOComplete);
+    }
+
+</script><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section></div></div><script src="revealjs-redhat/lib/js/head.min.js"></script><script src="revealjs-redhat/lib/js/reveal.min.js"></script><script src="revealjs-redhat/lib/js/jquery-1.11.2.min.js"></script><script src="revealjs-redhat/lib/js/gpe.min.js"></script><script type="text/javascript">// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: false,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'none',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+  // Optional libraries used to extend on reveal.js
+
+  margin: 0.2,
+  marginTop: '1%', // Top position of the slide : percentage or px
+  marginLeft: '7%', // Left position of the slide : percentage or px
+
+  width: 960,
+  height: 700,
+  minScale: 0.2,
+  maxScale: 1,
+
+  // Theme (e.g., beige, black, blood, league, moon, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  theme: Reveal.getQueryHash().theme || 'gpe',
+
+  notes: {},
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    {
+      src: 'revealjs-redhat/lib/plugin/markdown/marked.js', condition: function () {
+      return !!document.querySelector('[data-markdown]');
+    }
+    },
+    {
+      src: 'revealjs-redhat/lib/plugin/markdown/markdown.js', condition: function () {
+      return !!document.querySelector('[data-markdown]');
+    }
+    },
+    {
+      src: 'revealjs-redhat/lib/plugin/highlight/highlight.js', async: true, condition: function () {
+      return !!document.querySelector('pre code');
+    },
+      callback: function () {
+        hljs.initHighlightingOnLoad();
+      }
+    },
+    { // DOES NOT WORK ANYMORE
+      src: 'revealjs-redhat/lib/plugin/zoom-js/zoom.js', async: true, condition: function () {
+      return !!document.body.classList;
+    }
+    },
+    {
+      src: 'revealjs-redhat/lib/plugin/notes/notes.js', async: true, condition: function () {
+      return !!document.body.classList;
+    }
+    }
+  ]
+   // TODO : Add a parameter to enable/disable REMOTE
+   // { src: 'revealjs/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
+ });</script></body></html>

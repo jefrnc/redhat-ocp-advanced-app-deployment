@@ -1,0 +1,57 @@
+<?xml version="1.0" standalone="no"?>
+<manifest identifier="_5fXTSqbzScB_course_id" version="1.3" xmlns="http://www.imsglobal.org/xsd/imscp_v1p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3" xmlns:adlseq="http://www.adlnet.org/xsd/adlseq_v1p3" xmlns:adlnav="http://www.adlnet.org/xsd/adlnav_v1p3" xmlns:imsss="http://www.imsglobal.org/xsd/imsss" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd
+                              http://www.adlnet.org/xsd/adlcp_v1p3 adlcp_v1p3.xsd
+                              http://www.adlnet.org/xsd/adlseq_v1p3 adlseq_v1p3.xsd
+                              http://www.adlnet.org/xsd/adlnav_v1p3 adlnav_v1p3.xsd
+                              http://www.imsglobal.org/xsd/imsss imsss_v1p0.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+    <!-- adlcp:location>metadata.xml</adlcp:location -->
+  </metadata>
+  <organizations default="GPTE">
+    <organization identifier="GPTE">
+        <title>Advanced Application Deployment with Red Hat OpenShift</title>
+<item identifier="01_Course_Intro slides" identifierref="01_Course_Intro slides" isvisible="true"><title>1: Introduction to Course and Learning Environment</title></item>
+<item identifier="02_12_Factor_Applications slides" identifierref="02_12_Factor_Applications slides" isvisible="true"><title>2: Twelve-Factor Applications</title></item>
+<item identifier="03_Controllers slides" identifierref="03_Controllers slides" isvisible="true"><title>3: Controllers</title></item>
+<item identifier="03_1_Controllers_Lab" identifierref="03_1_Controllers_Lab" isvisible="true"><title>Lab 3: Controllers</title></item>
+<item identifier="03_1_Controllers_Solution_Lab" identifierref="03_1_Controllers_Solution_Lab" isvisible="true"><title>Lab 3 Solution: Controllers</title></item>
+<item identifier="04_Operators slides" identifierref="04_Operators slides" isvisible="true"><title>4: Operators</title></item>
+<item identifier="04_1_Operators_Lab" identifierref="04_1_Operators_Lab" isvisible="true"><title>Lab 4: Operators</title></item>
+<item identifier="04_1_Operators_Solution_Lab" identifierref="04_1_Operators_Solution_Lab" isvisible="true"><title>Lab 4 Solution: Operators</title></item>
+<item identifier="05_CICD_Tools slides" identifierref="05_CICD_Tools slides" isvisible="true"><title>5: CI/CD Tools</title></item>
+<item identifier="05_1_CICD_Tools_Lab" identifierref="05_1_CICD_Tools_Lab" isvisible="true"><title>Lab 5: CI/CD Tools</title></item>
+<item identifier="05_1_CICD_Tools_Solution_Lab" identifierref="05_1_CICD_Tools_Solution_Lab" isvisible="true"><title>Lab 5 Solution: CI/CD Tools</title></item>
+<item identifier="06_Building_Applications slides" identifierref="06_Building_Applications slides" isvisible="true"><title>06 Building Applications</title></item>
+<item identifier="06_1_Building_Applications_Lab" identifierref="06_1_Building_Applications_Lab" isvisible="true"><title>Lab 6: Application Development</title></item>
+<item identifier="06_1_Building_Applications_Solution_Lab" identifierref="06_1_Building_Applications_Solution_Lab" isvisible="true"><title>Lab 6 Solution: Application Development</title></item>
+<item identifier="07_Pipelines slides" identifierref="07_Pipelines slides" isvisible="true"><title>7: Pipelines</title></item>
+<item identifier="07_1_Pipelines_Lab" identifierref="07_1_Pipelines_Lab" isvisible="true"><title>Lab 7: Pipelines</title></item>
+<item identifier="07_1_Pipelines_Solution_Lab" identifierref="07_1_Pipelines_Solution_Lab" isvisible="true"><title>Lab 7 Solution: Pipelines</title></item>
+<item identifier="08_Assignment slides" identifierref="08_Assignment slides" isvisible="true"><title>8: Homework Assignment</title></item>
+<item identifier="08_1_Assignment_Lab" identifierref="08_1_Assignment_Lab" isvisible="true"><title>Lab 8: Homework Assignment</title></item>
+    </organization>
+  </organizations>
+  <resources>
+<resource identifier="01_Course_Intro slides" type="webcontent" adlcp:scormtype="sco" href="01_Course_Intro/scormdriver/indexAPI.html"></resource>
+<resource identifier="02_12_Factor_Applications slides" type="webcontent" adlcp:scormtype="sco" href="02_12_Factor_Applications/scormdriver/indexAPI.html"></resource>
+<resource identifier="03_Controllers slides" type="webcontent" adlcp:scormtype="sco" href="03_Controllers/scormdriver/indexAPI.html"></resource>
+<resource identifier="03_1_Controllers_Lab" type="webcontent" adlcp:scormtype="asset" href="03_Controllers/03_1_Controllers_Lab.html"></resource>
+<resource identifier="03_1_Controllers_Solution_Lab" type="webcontent" adlcp:scormtype="asset" href="03_Controllers/03_1_Controllers_Solution_Lab.html"></resource>
+<resource identifier="04_Operators slides" type="webcontent" adlcp:scormtype="sco" href="04_Operators/scormdriver/indexAPI.html"></resource>
+<resource identifier="04_1_Operators_Lab" type="webcontent" adlcp:scormtype="asset" href="04_Operators/04_1_Operators_Lab.html"></resource>
+<resource identifier="04_1_Operators_Solution_Lab" type="webcontent" adlcp:scormtype="asset" href="04_Operators/04_1_Operators_Solution_Lab.html"></resource>
+<resource identifier="05_CICD_Tools slides" type="webcontent" adlcp:scormtype="sco" href="05_CICD_Tools/scormdriver/indexAPI.html"></resource>
+<resource identifier="05_1_CICD_Tools_Lab" type="webcontent" adlcp:scormtype="asset" href="05_CICD_Tools/05_1_CICD_Tools_Lab.html"></resource>
+<resource identifier="05_1_CICD_Tools_Solution_Lab" type="webcontent" adlcp:scormtype="asset" href="05_CICD_Tools/05_1_CICD_Tools_Solution_Lab.html"></resource>
+<resource identifier="06_Building_Applications slides" type="webcontent" adlcp:scormtype="sco" href="06_Building_Applications/scormdriver/indexAPI.html"></resource>
+<resource identifier="06_1_Building_Applications_Lab" type="webcontent" adlcp:scormtype="asset" href="06_Building_Applications/06_1_Building_Applications_Lab.html"></resource>
+<resource identifier="06_1_Building_Applications_Solution_Lab" type="webcontent" adlcp:scormtype="asset" href="06_Building_Applications/06_1_Building_Applications_Solution_Lab.html"></resource>
+<resource identifier="07_Pipelines slides" type="webcontent" adlcp:scormtype="sco" href="07_Pipelines/scormdriver/indexAPI.html"></resource>
+<resource identifier="07_1_Pipelines_Lab" type="webcontent" adlcp:scormtype="asset" href="07_Pipelines/07_1_Pipelines_Lab.html"></resource>
+<resource identifier="07_1_Pipelines_Solution_Lab" type="webcontent" adlcp:scormtype="asset" href="07_Pipelines/07_1_Pipelines_Solution_Lab.html"></resource>
+<resource identifier="08_Assignment slides" type="webcontent" adlcp:scormtype="sco" href="08_Assignment/scormdriver/indexAPI.html"></resource>
+<resource identifier="08_1_Assignment_Lab" type="webcontent" adlcp:scormtype="asset" href="08_Assignment/08_1_Assignment_Lab.html"></resource>
+  </resources>
+</manifest>

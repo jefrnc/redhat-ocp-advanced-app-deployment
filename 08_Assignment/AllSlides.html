@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><title>&nbsp;</title><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><link href="revealjs-redhat/lib/css/theme-v2-liberation.css" rel="stylesheet" /><link href="revealjs-redhat/lib/css/theme-output.css" rel="stylesheet" /><link rel="stylesheet" href="revealjs-redhat/lib/css/font-awesome-4.3.0.css" /><link rel="stylesheet" href="revealjs-redhat/lib/css/gpe.css" id="theme" /><link rel="stylesheet" href="revealjs-redhat/lib/css/highlightjs/sunburst.min.css" /></head><script type="text/javascript">document.write( '<link rel="stylesheet" href="revealjs-redhat/lib/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><body class="theme-font-liberation"><div class="reveal"><div class="slides"><section id="cover" data-background-image="image/1156524-bg_redhat.png" data-background-color="#cc0000"><h2>&nbsp;</h2><div class="scrollbar"><div class="sl-block" data-block-type="text" style="width: 832px; left: 80px; top: 150px; height: auto;"><div class="sl-block-content"><h1>Advanced Application Deployment with Red Hat OpenShift</h1></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 776px; left: 80px; top: 350px;"><div class="sl-block-content"><h2>Homework Assignment</h2></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 211.706666666667px; height: 68px; left: 80px; top: 50px;"><div class="sl-block-content" style="z-index: 13;"><img data-src="data:image/png;base64,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" /></div></div><div class="footer footer-cover">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_assignment_overview"><h2>Assignment Overview</h2><div class="scrollbar"><div class="ulist"><ul><li><p>This section = final assessment from your instructor</p></li><li><p>See the lab instructions for details.</p></li><li><p>Allow 6-8 hours to complete assessment</p><div class="ulist"><ul><li><p>Contact instructor if you cannot allocate time to complete</p></li><li><p>Contact OPENTLC staff if environment expiration extension needed</p></li></ul></div></li></ul></div>
+<aside class="notes"><div class="paragraph"></div><p>=== Transcript</p></aside><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section>
+<section id="_module_completion"><h2>Module Completion</h2><div class="scrollbar"><script type="text/javascript" >
+
+    var moduleCompletionVersion = "1.8"
+    var host = window.parent.location.host;
+    console.log("Module Completion:  version = "+moduleCompletionVersion);
+
+    /*
+        Dokeos behavior:
+            - used to re-direct after having notified LMS of module completion
+        Sumtotal behavior:
+            - Not used
+            - Student should just close the browser tab for the module (apparently the originating tab stays open and allows the student to navigate to the next module)
+    */
+    function getCourseHomepageURL() {
+
+        //uriString = "http://www.redhat.com";
+        //uriString = "https://rh.dokeos.com/main/newscorm/lp_controller.php?cidReq=SCORMTEST&action=return_to_course_homepage"
+
+        uriString = document.location.origin;
+        uriString += "/main/course_home";
+        console.log("getCourseHomepageURL = "+uriString);
+        return uriString;
+    }
+
+     /*
+     Dokeos behavior:
+        - Request URL:      <a href="https://rh.dokeos.com/main/newscorm/lp_ajax_save_item.php">https://rh.dokeos.com/main/newscorm/lp_ajax_save_item.php</a>
+        - Response body:    update_toc('completed','6');update_progress_bar('1', '1', '%');update_stats();
+
+        NOTE:  Need to execute the module in Dokeos as a Learner to see results in Reporting.
+            - The Reporting displays results of Learners only.
+            - If you take the module as a Trainer you can see the progress in the Modules tool as per this screenshot:  <a href="http://snag.gy/gUgcp.jpg">http://snag.gy/gUgcp.jpg</a>
+    */
+    function SetSCOComplete() {
+        var SD = window.parent;
+
+        if (typeof SD.SetReachedEnd != "undefined") {
+            //This is the last page so set it complete
+            SD.SetReachedEnd();
+            SD.CommitData();
+            console.log("SetSCOComplete() just called SD.SetReachedEnd() and SD.CommitData()");
+
+            document.getElementById("completeDiv").style.display = "none";
+            console.log("typeof myDokeosWebPath = "+ typeof dokeosWebPath);
+            if(host.indexOf("dokeos") > 0) {
+                console.log("SetSCOComplete() detecting Dokeos environment.  Will display continue button");
+                document.getElementById("continueDiv").style.display = "block";
+            } else {
+                console.log("SetSCOComplete() detecting non-Dokeos environment.  Will display close button");
+                document.getElementById("closeDiv").style.display = "block";
+            }
+        }else {
+            noSCOmessage = "SetSCOComplete() LMS does not appear to support the SetReachedEnd() function";
+            alert(noSCOmessage);
+        }
+
+    }
+
+</script>
+
+<div id="completeDiv" >
+    <p>Nice job!</p>
+    <p> Click the button below to complete this module of the course:</p>
+    <input type="button" id="completeModule" value="Complete Module" style="font-size:1.0em;font-family:Oswald, sans-serif;" /></br/>
+</div>
+
+<div id="continueDiv" style="display:none">
+    <p>Click the button below to continue to the course homepage:</p>
+    <input type="button" id="continueModule" value="Continue" style="font-size:1.0em;font-family:Oswald, sans-serif;" onclick="top.location.href=getCourseHomepageURL()" /></br/>
+</div>
+
+<div id="closeDiv" style="display:none">
+    <p>Please continue with the next item in the course. </p>
+</div>
+
+
+<script type="text/javascript" >
+    document.getElementById("completeDiv").style.display = "visible";
+    document.getElementById("continueDiv").style.display = "none";
+    document.getElementById("closeDiv").style.display = "none";
+
+    // invoke SetSCOComplete function when the completeModule button is clicked
+    var el = document.getElementById("completeModule");
+    if (typeof el.addEventListener != "undefined") {
+        el.addEventListener("click", SetSCOComplete, false);
+    } else if (el.attachEvent) {
+        el.attachEvent('onclick', SetSCOComplete);
+    }
+
+</script><div class="footer">Copyright ©2012-2020 Red Hat, Inc. - 19c787cb11bb88554ea234028b4762932710acee</div></div></section></div></div><script src="revealjs-redhat/lib/js/head.min.js"></script><script src="revealjs-redhat/lib/js/reveal.min.js"></script><script src="revealjs-redhat/lib/js/jquery-1.11.2.min.js"></script><script src="revealjs-redhat/lib/js/gpe.min.js"></script><script type="text/javascript">// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: false,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'none',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+  // Optional libraries used to extend on reveal.js
+
+  margin: 0.2,
+  marginTop: '1%', // Top position of the slide : percentage or px
+  marginLeft: '7%', // Left position of the slide : percentage or px
+
+  width: 960,
+  height: 700,
+  minScale: 0.2,
+  maxScale: 1,
+
+  // Theme (e.g., beige, black, blood, league, moon, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  theme: Reveal.getQueryHash().theme || 'gpe',
+
+  notes: {},
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    {
+      src: 'revealjs-redhat/lib/plugin/markdown/marked.js', condition: function () {
+      return !!document.querySelector('[data-markdown]');
+    }
+    },
+    {
+      src: 'revealjs-redhat/lib/plugin/markdown/markdown.js', condition: function () {
+      return !!document.querySelector('[data-markdown]');
+    }
+    },
+    {
+      src: 'revealjs-redhat/lib/plugin/highlight/highlight.js', async: true, condition: function () {
+      return !!document.querySelector('pre code');
+    },
+      callback: function () {
+        hljs.initHighlightingOnLoad();
+      }
+    },
+    { // DOES NOT WORK ANYMORE
+      src: 'revealjs-redhat/lib/plugin/zoom-js/zoom.js', async: true, condition: function () {
+      return !!document.body.classList;
+    }
+    },
+    {
+      src: 'revealjs-redhat/lib/plugin/notes/notes.js', async: true, condition: function () {
+      return !!document.body.classList;
+    }
+    }
+  ]
+   // TODO : Add a parameter to enable/disable REMOTE
+   // { src: 'revealjs/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
+ });</script></body></html>
